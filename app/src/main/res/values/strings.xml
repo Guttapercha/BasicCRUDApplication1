@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BasicCRUDApplication1</string>
+    <string name="btn_add_record">add record</string>
+    <string name="btn_get_record">get record</string>
+    <string name="btn_delete_record">get record</string>
+    <string name="btn_update_record">update record</string>
+    <string name="label_first_name">first name</string>
+    <string name="label_last_name">last name</string>
+    <string name="label_insurance_status">insurane status</string>
+    <string name="btn_save">save record</string>
+    <string name="empl_id">employee id</string>
+    <string name="btn_create_record">create record</string>
+    <string name="btn_back">back</string>
+</resources>
