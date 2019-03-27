@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBClass extends SQLiteOpenHelper {
 
     public static int DATABASE_VERSION = 1;
@@ -52,6 +55,33 @@ public class DBClass extends SQLiteOpenHelper {
         foundEmployee.isInsured = c.getInt(c.getColumnIndex(Employee.COLUMN_INSURED)) !=0 ;
 
         return foundEmployee;
+    }
+
+    public List<Employee> getEmployees(){
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuery = "select * from " + Employee.TABLE_NAME;
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        List<Employee> empList = new ArrayList<>();
+
+        if(c.moveToFirst()) {
+
+
+            do {
+                Employee foundEmployee = new Employee ();
+                foundEmployee.id = c.getInt(c.getColumnIndex(Employee.COLUMN_ID));
+                foundEmployee.firstName = c.getString(c.getColumnIndex(Employee.COLUMN_FIRSTNAME));
+                foundEmployee.lastName = c.getString(c.getColumnIndex(Employee.COLUMN_LASTNAME));
+                foundEmployee.isInsured = c.getInt(c.getColumnIndex(Employee.COLUMN_INSURED)) !=0 ;
+
+                empList.add(foundEmployee);
+
+            } while (c.moveToNext());
+        }
+
+        db.close();
+
+        return empList;
     }
 
     @Override

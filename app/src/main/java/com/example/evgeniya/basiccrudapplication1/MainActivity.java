@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         Button bRead = findViewById((R.id.btn_get));
         Button bDelete = findViewById((R.id.btn_delete));
         Button bUpdate = findViewById((R.id.btn_update));
+        Button bList = findViewById((R.id.btn_list));
 
         bCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ReadRecord.class);
+                startActivity(i);
+            }
+        });
+
+        bList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ListRecords.class);
                 startActivity(i);
             }
         });
