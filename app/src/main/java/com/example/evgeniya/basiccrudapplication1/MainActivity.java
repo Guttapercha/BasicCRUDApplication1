@@ -26,6 +26,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        bDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), DeleteRecord .class);
+                startActivity(i);
+            }
+        });
+
+        bUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), UpdateRecord.class);
+                startActivity(i);
+            }
+        });
+
         bRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

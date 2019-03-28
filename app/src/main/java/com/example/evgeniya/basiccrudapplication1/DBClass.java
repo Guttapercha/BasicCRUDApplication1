@@ -36,6 +36,23 @@ public class DBClass extends SQLiteOpenHelper {
         return e;
     }
 
+    public void deleteEmployee(int empId) {
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(Employee.TABLE_NAME, Employee.COLUMN_ID + "=?", new String[]{String.valueOf(empId)});
+    }
+
+    public void updateEmployee(int empId, String fn, String ln, boolean ins) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(Employee.COLUMN_FIRSTNAME, fn);
+        cv.put(Employee.COLUMN_LASTNAME, ln);
+        cv.put(Employee.COLUMN_INSURED, ins ? 1 : 0);
+
+        db.update(Employee.TABLE_NAME, cv, Employee.COLUMN_ID + "=?", new String[]{String.valueOf(empId)});
+    }
+
     public  Employee getEmployee (int empId) {
         SQLiteDatabase db = getReadableDatabase();
 
