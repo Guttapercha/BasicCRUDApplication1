@@ -41,7 +41,7 @@ public class UpdateRecord extends AppCompatActivity {
 
                 Integer empId = Integer.valueOf(editId.getText().toString());
 
-                dbc.updateEmployee(empId, editFirst.toString(), editLast.toString(), toggleIns.isChecked());
+                dbc.updateEmployee(empId, editFirst.getText().toString(), editLast.getText().toString(), toggleIns.isChecked());
 
                 Toast.makeText(getApplicationContext(), "Record updated!", Toast.LENGTH_LONG).show();
             }
